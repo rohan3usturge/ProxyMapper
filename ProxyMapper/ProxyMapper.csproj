@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net462;net461;netcoreapp1.1</TargetFrameworks>
+    <PackageId>ProxyMapper</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Rohan Usturge</Authors>
+    <Description>Declarative, attribute based, proxy driven ORM/ caching abstraction framework</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <Copyright>Copyright 2017 (c) Microsoft Corporation. All rights reserved.</Copyright>
+    <PackageTags>orm sql database sqlserver</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="4.1.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.3.1" />
+    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
