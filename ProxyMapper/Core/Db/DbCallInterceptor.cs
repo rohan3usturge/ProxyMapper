@@ -34,7 +34,6 @@
         public void Intercept(IInvocation invocation)
         {
             SqlConnection conn = null;
-            CallInfo callInfo = null;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             try
@@ -42,7 +41,7 @@
                 MethodInfo methodInfo = invocation.Method;
 
                 //Attributes-Info
-                callInfo = methodInfo.GetCustomAttribute<CallInfo>();
+                CallInfo callInfo = methodInfo.GetCustomAttribute<CallInfo>();
                 this._validatorChain.Validate(callInfo);
                 string queryString = callInfo.QueryString;
                 CallType callType = callInfo.CallType;
