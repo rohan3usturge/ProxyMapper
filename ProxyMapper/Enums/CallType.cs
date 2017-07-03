@@ -3,10 +3,6 @@
     public enum CallType
     {
         Procedure,
-        Function,
-        Select,
-        Delete,
-        Update,
-        Insert
+        Text
     }
 }

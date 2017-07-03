@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyMapper", "ProxyMapper\ProxyMapper.csproj", "{4551806A-2756-4F17-B78B-E835B7CF5CC1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{35FCAB98-D5FF-4CEF-B718-F796CE675E9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4551806A-2756-4F17-B78B-E835B7CF5CC1} = {35FCAB98-D5FF-4CEF-B718-F796CE675E9A}
 	EndGlobalSection
 EndGlobal

@@ -1,21 +1,22 @@
-﻿using Castle.DynamicProxy;
-using Microsoft.Extensions.Logging;
+﻿using System;
+using System.Reflection;
+using Castle.DynamicProxy;
 
 namespace ProxyMapper.Core
 {
-    public class ProxyFactory
+    public static class ProxyFactory
     {
-        private readonly ILogger _logger;
+        private static readonly ProxyGenerator ProxyGenerator = new ProxyGenerator();
 
-        public ProxyFactory(ILogger logger)
+        public static T CreateRepoProxy<T>(string connectionString, IDataProcessor dataProcessor = null) where T : class
         {
-            this._logger = logger;
-        }
-
-        public T CreateProxy<T>(string connectionString, IDataProcessor dataProcessor = null) where T : class
-        {
-            ProxyGenerator proxyGenerator = new ProxyGenerator();
-            object proxy = proxyGenerator.CreateInterfaceProxyWithoutTarget(typeof(T), new DbCallInterceptor(connectionString, GetDataProcessor(dataProcessor)));
+            if (!typeof(T).GetTypeInfo().IsInterface)
+            {
+                throw new InvalidOperationException(
+                    "Proxies can be generated only for interfaces. Please provide a proper interface.");
+            }
+            object proxy = ProxyGenerator.CreateInterfaceProxyWithoutTarget(typeof(T),
+                new DbCallInterceptor(connectionString, GetDataProcessor(dataProcessor)));
             return (T) proxy;
         }
 

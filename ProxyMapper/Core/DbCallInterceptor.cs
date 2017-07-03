@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Reflection;
 using Castle.Core.Internal;
 using Castle.DynamicProxy;
@@ -20,7 +18,6 @@ namespace ProxyMapper.Core
 
         private readonly IValidatorChain<CallInfo> _validatorChain;
 
-
         public DbCallInterceptor(string connectionString, IDataProcessor dataProcessor)
         {
             this._connectionString = connectionString;
@@ -34,8 +31,6 @@ namespace ProxyMapper.Core
         public void Intercept(IInvocation invocation)
         {
             SqlConnection conn = null;
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             try
             {
                 MethodInfo methodInfo = invocation.Method;
@@ -94,16 +89,9 @@ namespace ProxyMapper.Core
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                //this._logger.LogError($"Db Call Processing Failed for - {callInfo}");
-                throw new Exception(ex.Message, ex);
-            }
             finally
             {
                 conn?.Close();
-                stopwatch.Stop();
-                //this._logger.LogInformation($"Db Call Processing completed in {stopwatch.ElapsedMilliseconds} ms for - {callInfo}");
             }
         }
 
