@@ -2,15 +2,13 @@
 
 ## Introduction
 
-ProxyDal is a proxy based ORM framework for .NET core which provides a declarative,lightweight and performant mehanism to run stored procedures and sql statements.
+ProxyMapper is a proxy based ORM framework for .NET + SQL Server ( currently ) which provides a declarative,lightweight and performant mehanism to run stored procedures and sql statements.
 
 This framework executes DB calls in about 1/4th of the time used by EF and at the same time provides abstraction over DB operations as provided by EF using inline declarative approach.( Attributes )  
 
 Future Steps:
 
 1. Suport for .NET framework along with .NET core.
-2. Removal of Castle Proxy and usage of native .NET core libraries.
-
 
 ## Motivation and Comparison with EF
 
@@ -158,7 +156,7 @@ Current Version : 1.0.0
 
 ## Authors
 
-* **Rohan Usturge** - *Initial work* - [rousturg](https://rousturg.vsaex.visualstudio.com/me?mkt=en-US&campaign=o~msft~vsts~usercard)
+* **Rohan Usturge** - *Initial work* - [Rohan Usturge](https://github.com/l3lade)
 
 
 ## License
