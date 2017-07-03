@@ -1,10 +1,9 @@
-﻿namespace ProxyMapper.Core
-{
-    using System;
-    using System.Collections.Generic;
-    using ProxyMapper.Attributes;
-    using ProxyMapper.Validation;
+﻿using System;
+using System.Collections.Generic;
+using ProxyMapper.Attributes;
 
+namespace ProxyMapper.Validation
+{
     internal class CallInfoValidator : IValidator<CallInfo>
     {
         public IEnumerable<string> Validate(CallInfo callInfo)

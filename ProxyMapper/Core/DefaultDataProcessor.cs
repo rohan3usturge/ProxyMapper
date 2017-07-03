@@ -1,13 +1,13 @@
-﻿namespace ProxyMapper.Core
-{
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Data.SqlClient;
-    using System.Reflection;
-    using ProxyMapper.Util;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Reflection;
+using ProxyMapper.Util;
 
+namespace ProxyMapper.Core
+{
     public class DefaultDataProcessor : IDataProcessor
     {
         //protected ILogger Logger { get; set; }
@@ -17,7 +17,7 @@
             return ProcessOneResultSet(sqlDataReader, valueType);
         }
 
-        protected static IList ProcessOneResultSet(IDataReader sqlDataReader, ReturnTypeInfo valueType)
+        private static IList ProcessOneResultSet(IDataReader sqlDataReader, ReturnTypeInfo valueType)
         {
             IList list = TypeUtil.EmptyList(valueType.ActualType);
             bool isFirstRow = true;

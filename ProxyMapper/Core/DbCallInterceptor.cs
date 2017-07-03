@@ -1,17 +1,17 @@
-﻿namespace ProxyMapper.Core
-{
-    using System;
-    using System.Collections;
-    using System.Data;
-    using System.Data.SqlClient;
-    using System.Diagnostics;
-    using System.Reflection;
-    using Castle.Core.Internal;
-    using Castle.DynamicProxy;
-    using ProxyMapper.Attributes;
-    using ProxyMapper.Enums;
-    using ProxyMapper.Validation;
+﻿using System;
+using System.Collections;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
+using System.Reflection;
+using Castle.Core.Internal;
+using Castle.DynamicProxy;
+using ProxyMapper.Attributes;
+using ProxyMapper.Enums;
+using ProxyMapper.Validation;
 
+namespace ProxyMapper.Core
+{
     internal class DbCallInterceptor : IInterceptor
     {
         private readonly string _connectionString;
@@ -19,7 +19,7 @@
         private readonly IDataProcessor _dataProcessor;
 
         private readonly IValidatorChain<CallInfo> _validatorChain;
-        
+
 
         public DbCallInterceptor(string connectionString, IDataProcessor dataProcessor)
         {
@@ -78,9 +78,8 @@
                 }
                 else
                 {
-                    IList list = null;
                     SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                    list = this._dataProcessor.ProcessDataFromDb(sqlDataReader, returnTypeInfo);
+                    IList list = this._dataProcessor.ProcessDataFromDb(sqlDataReader, returnTypeInfo);
                     invocation.ReturnValue = null;
                     if (returnTypeInfo.IsCollection)
                     {
