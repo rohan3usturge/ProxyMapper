@@ -16,15 +16,15 @@ Most Projects which use EF ( Entity Framework ) don't really need it. EF is too 
 
 The tradeoff of having easy n fast development with EF is performance. The abstraction that EF provides, comes wih huge bearing on performance.
 
-You can achieve the fast-n-easy development, declarative approach and also very good performane using a framework like ProxyDal. 
+You can achieve the fast-n-easy development, declarative approach and also very good performane using a framework like ProxyMapper. 
 
-At the same time, ProxyDal abstracts all the crud operations such as ceating connections, creating SQLCommands, Setting parameters, DB call, converting DB data to Objects from the user. 
+At the same time, ProxyMapper abstracts all the crud operations such as ceating connections, creating SQLCommands, Setting parameters, DB call, converting DB data to Objects from the user. 
 
-So you get performance and easy development in one go. You can see the usage section below to find out how easy it is to use ProxyDal.
+So you get performance and easy development in one go. You can see the usage section below to find out how easy it is to use ProxyMapper.
 
 
 ```
-| parameter     | EF            | ProxyDal  | %Improvement
+| parameter     | EF            | PM        | %Improvement
 | ------------- |:-------------:| ---------:|--------------
 | Size          | 128KB         |  10KB     | 92%
 | SE ( 0 Rows)  | 612ms         |   9       | 98.5%
