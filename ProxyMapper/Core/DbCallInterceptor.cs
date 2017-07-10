@@ -18,10 +18,13 @@ namespace ProxyMapper.Core
 
         private readonly IValidatorChain<CallInfo> _validatorChain;
 
-        public DbCallInterceptor(string connectionString, IDataProcessor dataProcessor)
+        private readonly IDatatableConverter _datatableConverter;
+
+        public DbCallInterceptor(string connectionString, IDataProcessor dataProcessor,IDatatableConverter datatableConverter)
         {
             this._connectionString = connectionString;
             this._dataProcessor = dataProcessor;
+            this._datatableConverter = datatableConverter;
             this._validatorChain = new DefaultValidatorChain<CallInfo>(new IValidator<CallInfo>[]
             {
                 new CallInfoValidator()
@@ -62,7 +65,14 @@ namespace ProxyMapper.Core
                 int i = 0;
                 foreach (object argument in arguments)
                 {
-                    sqlCommand.Parameters.AddWithValue(parameterInfos[i++].Name, argument);
+                    object argumentTobeAdded = argument;
+                    DtAttribute customAttribute = argument.GetType().GetCustomAttribute<DtAttribute>();
+                    if (customAttribute != null)
+                    {
+                        DataTable dataTable = this._datatableConverter.ToDataTable((IEnumerable) argument);
+                        argumentTobeAdded = dataTable;
+                    }
+                    sqlCommand.Parameters.AddWithValue(parameterInfos[i++].Name, argumentTobeAdded);
                 }
 
                 //Call DB

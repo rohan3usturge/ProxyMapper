@@ -16,7 +16,8 @@ namespace ProxyMapper.Core
                     "Proxies can be generated only for interfaces. Please provide a proper interface.");
             }
             object proxy = ProxyGenerator.CreateInterfaceProxyWithoutTarget(typeof(T),
-                new DbCallInterceptor(connectionString, GetDataProcessor(dataProcessor)));
+                new DbCallInterceptor(connectionString, GetDataProcessor(dataProcessor),
+                    new DefaultDatatableConverter()));
             return (T) proxy;
         }
 

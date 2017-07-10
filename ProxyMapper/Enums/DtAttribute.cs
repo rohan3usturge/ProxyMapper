@@ -2,9 +2,9 @@
 
 namespace ProxyMapper.Enums
 {
-    public class DatatableAttribute : Attribute
+    public class DtAttribute : Attribute
     {
-        public DatatableAttribute(string columns)
+        public DtAttribute(string columns)
         {
             this.Columns = columns;
         }
