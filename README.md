@@ -156,7 +156,7 @@ Current Version : 1.0.0
 
 ## Authors
 
-* **Rohan Usturge** - *Initial work* - [Rohan Usturge](https://github.com/l3lade)
+* **Rohan Usturge** - *Initial work* - [Rohan Usturge](https://github.com/rohan3usturge)
 
 
 ## License
